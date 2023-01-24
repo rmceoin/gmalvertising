@@ -44,7 +44,9 @@ them in their full glory.  From there you can right-click on the
 link to grab it.
 
 ```bash
-$ google-chrome output/teamviewer-1674573968.html                                                                                                          
+$ google-chrome output/teamviewer-1674573968.html
 Opening in existing browser session.
 ```
+
+![Fake teamviewer ad](teaimviewer.png)
 
