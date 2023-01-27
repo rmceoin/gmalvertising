@@ -13,7 +13,26 @@ from os import path
 import re
 import sys
 
-ignore=r"/(www.adobe.com|www.atera.com|brave.com|try.bravesoftware.com|goto.com|buy.goto.com|www.goto.com|www.teamviewer.com|service.teamviewer.com|www.zoho.com|aclk)/"
+ALLOWED_FILENAME = "allowed.txt"
+ALLOWED_CUSTOM_FILENAME = "allowed-custom.txt"
+
+ignore = []
+
+def read_list(filename: str) -> list:
+    data_list = []
+    if path.exists(filename):
+        file = open(filename, 'r')
+        data = file.read()
+        for line in data.split('\n'):
+            if line:
+                data_list.append(line)
+    return data_list
+
+ignore += read_list(ALLOWED_FILENAME)
+ignore += read_list(ALLOWED_CUSTOM_FILENAME)
+
+ignore_list="|".join(ignore)
+re_ignore=r"/("+ignore_list+"|aclk)/"
 
 try:
     filename = sys.argv[1]
@@ -36,7 +55,7 @@ for link in soup.find_all('a'):
     href=link.get('href')
     if data_pcu:
 #        print(f'data_pcu={data_pcu} : href={href}')
-        ig = re.search(ignore, data_pcu)
+        ig = re.search(re_ignore, data_pcu)
         if not ig:
             print(f'Found {data_pcu} {filename}')
     elif data_rw:
@@ -44,7 +63,7 @@ for link in soup.find_all('a'):
 #        print(link)
         
         #print(f'Got {href}')
-        ig = re.search(ignore, href)
+        ig = re.search(re_ignore, href)
         #print(f'ig={ig}')
         if not ig:
             aclk=href.find("/aclk?")
