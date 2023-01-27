@@ -13,6 +13,14 @@ pip3 install --upgrade pip
 pip3 install -r requirements.txt
 ```
 
+## Customize
+
+Legitmate advertising domains should be added to
+`allowed-custom.txt`
+
+Discovered malicious domains should be added to
+`malicious-custom.txt`
+
 ## Run
 
 ```bash
@@ -23,20 +31,9 @@ pip3 install -r requirements.txt
 
 ```bash
 $ ./gsearch.sh | tee -a findings.txt
-Tue Jan 24 07:26:08 AM EST 2023
-Searching 7zip+download > output/7zip+download-1674573968.html
-Searching adobe+reader > output/adobe+reader-1674573968.html
-Searching anydesk > output/anydesk-1674573968.html
-Searching brave+browser > output/brave+browser-1674573968.html
-Searching discord > output/discord-1674573968.html
-Searching filezilla > output/filezilla-1674573968.html
-Searching notepad%2b%2b+download > output/notepad%2b%2b+download-1674573968.html
-Searching rufus+download > output/rufus+download-1674573968.html
-Searching teamviewer > output/teamviewer-1674573968.html
-Found https://teaimviewer.website/ output/teamviewer-1674573968.html
-Searching thunderbird > output/thunderbird-1674573968.html
-Searching vlc+download > output/vlc+download-1674573968.html
-Searching winrar+download > output/winrar+download-1674573968.html
+Fri Jan 27 09:27:52 AM EST 2023
+Fri Jan 27 09:29:32 AM EST 2023
+Found https://anydeks-access.com/ output/20230127/anydesk-1674840572.html
 ```
 
 Found files can be opened locally in Chrome to see

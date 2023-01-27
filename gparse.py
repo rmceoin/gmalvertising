@@ -15,6 +15,8 @@ import sys
 
 ALLOWED_FILENAME = "allowed.txt"
 ALLOWED_CUSTOM_FILENAME = "allowed-custom.txt"
+MALICIOUS_FILENAME = "malicious.txt"
+MALICIOUS_CUSTOM_FILENAME = "malicious-custom.txt"
 
 ignore = []
 
@@ -30,6 +32,8 @@ def read_list(filename: str) -> list:
 
 ignore += read_list(ALLOWED_FILENAME)
 ignore += read_list(ALLOWED_CUSTOM_FILENAME)
+ignore += read_list(MALICIOUS_FILENAME)
+ignore += read_list(MALICIOUS_CUSTOM_FILENAME)
 
 ignore_list="|".join(ignore)
 re_ignore=r"/("+ignore_list+"|aclk)/"
