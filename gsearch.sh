@@ -5,6 +5,25 @@ if [[ ! -e $outputdir ]]; then
     mkdir $outputdir
 fi
 
+# https://stackoverflow.com/questions/296536/how-to-urlencode-data-for-curl-command
+rawurlencode() {
+  local string="${1}"
+  local strlen=${#string}
+  local encoded=""
+  local pos c o
+
+  for (( pos=0 ; pos<strlen ; pos++ )); do
+     c=${string:$pos:1}
+     case "$c" in
+        [-_.~a-zA-Z0-9] ) o="${c}" ;;
+        " " ) o="+" ;;
+        * )               printf -v o '%%%02x' "'$c"
+     esac
+     encoded+="${o}"
+  done
+  REPLY="${encoded}"
+}
+
 performquery () {
     query="$1"
     today=$(date +%Y%m%d)
@@ -33,23 +52,17 @@ do
 
     epoch=`date +%s`
 
-    performquery '1password'
-    performquery '7zip+download'
-    performquery 'adobe+reader'
-    performquery 'anydesk'
-    performquery 'brave+browser'
-    performquery 'ccleaner'
-    performquery 'discord'
-    performquery 'filezilla'
-    performquery 'gimp'
-    performquery 'notepad%2b%2b+download'
-    performquery 'rufus+download'
-    performquery 'slack'
-    performquery 'teamviewer'
-    performquery 'thunderbird'
-    performquery 'virtualbox'
-    performquery 'vlc+download'
-    performquery 'winrar+download'
+    IFS=$'\n'
+    for t in `cat queries.txt`; do
+        rawurlencode "$t"
+        performquery "$REPLY"
+    done
 
+    if [[ -e "queries-custom.txt" ]]; then
+        for t in `cat queries-custom.txt`; do
+            rawurlencode "$t"
+            performquery "$REPLY"
+        done
+    fi
     sleep 60
 done
