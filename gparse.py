@@ -36,6 +36,13 @@ ignore += read_list(MALICIOUS_FILENAME)
 ignore += read_list(MALICIOUS_CUSTOM_FILENAME)
 
 ignore_list="|".join(ignore)
+
+ignore_subdomains=[]
+for domain in ignore:
+    ignore_subdomains.append("\w+\." + domain)
+ignore_list+="|"
+ignore_list+="|".join(ignore_subdomains)
+
 re_ignore=r"/("+ignore_list+"|aclk)/"
 
 try:

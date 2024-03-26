@@ -1,6 +1,7 @@
 1password
 7zip download
 adobe reader
+advanced ip scanner
 anydesk
 bitwarden
 brave browser
