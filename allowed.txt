@@ -1,13 +1,11 @@
 1password.com
 2brightsparks.com
-addons.mozilla.org
 adobe.com
 amazon.com
 apkpac.com
 appconner.com
 appcracy.com
 apposee.com
-app.popsilla.com
 appratemaster.com
 asana.com
 atera.com
@@ -18,7 +16,6 @@ bestvaluevpn.com
 beyondtrust.com
 bhphotovideo.com
 bitwarden.com
-blog.1password.com
 brave.com
 bravesoftware.com
 buybuylife.com
@@ -52,6 +49,7 @@ macincloud.com
 manageengine.com
 microsoft.com
 mobexer.com
+mozilla.org
 mysavingclub.org
 nchsoftware.com
 nicedeals.org
@@ -70,7 +68,6 @@ shopping.net
 signnow.com
 skylum.com
 slack.com
-start.1password.com
 sysax.com
 target.com
 teamviewer.com
@@ -79,11 +76,9 @@ top6.com
 tophix.com
 touchupdirect.com
 unleash.so
-us.apkpac.com
 uslegalforms.com
 virtru.com
 vivaldi.com
 walmart.com
-watchtower.1password.com
 winzip.com
 zoho.com
