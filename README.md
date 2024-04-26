@@ -24,7 +24,7 @@ Discovered malicious domains should be added to
 ## Run
 
 ```bash
-./gsearch.sh | tee -a findings.txt
+./gsearch.sh | tee -a "findings-$(date +%Y%m%d).txt"
 ```
 
 ## Example Output

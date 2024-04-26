@@ -1,0 +1,7 @@
+
+[MASTER]
+disable=C0114,C0116,C0301
+
+max-public-methods=30
+max-args = 8
+
